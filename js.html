@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+        background-image: url(./2.svg);
+       
+      }
+      #ruleContent{
+        width: 400px;
+        height: 400px;
+        border: 1px solid blue;
+        float: left;
+        position: fixed;
+        left: 1%;
+        top: 2%;
+        font-size: 25px;
+        padding: 5px;
+      }
+      #ruleContent p{
+        font-size: 23px;
+        text-align: left;
+      }
+      #rule{
+        background-image: url(pic/pic_button3.gif);
+        background-repeat: no-repeat;
+        width: 160px;
+        height: 50px;
+        display: inline-block;
+        
+      }
+      #rule:hover {
+        box-shadow: 0 5px rgba(214, 188, 131, 0.5);
+      }
+      #start {
+        background-image: url(pic/pic_button.gif);
+        background-repeat: no-repeat;
+        width: 160px;
+        height: 50px;
+        display: inline-block;
+        right: 80%;
+        
+      }
+      #start:hover {
+        box-shadow: 0 5px rgba(214, 188, 131, 0.5);
+      }
+      #text-score {
+        top: 50%;
+      }
+      #yajirushi{
+        width: 50px;
+        height: 50px;
+        float: left;
+        transform: rotate(90deg);
+
+      }
+      #ji{
+        
+        font-size: 30px;
+      }
+      #mainRole {
+        width: 100px;
+        height: 125px;
+        border: 1px solid black;
+        margin: auto;
+        cursor:pointer;
+      }
+      #table {
+        margin: auto;
+      }
+      #table td {
+        width: 100px;
+        height: 125px;
+        border: 1px solid black;
+        display: inline-block;
+        margin: 1px;
+        padding: 1px;
+        cursor:pointer;
+      }
+
+      #table td img {
+        text-align: center;
+      }
+      #bigBox {
+        text-align: center;
+      }
+      #role1,
+      #role2,
+      #role3,
+      #role4,
+      #role5,
+      #role6,
+      #role7,
+      #role8,
+      #roleNone {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 1px solid rgb(243, 152, 49);
+        display: inline-block;
+        cursor:pointer;
+      }
+      #scBox{ 
+        display: inline-block;
+        right: 5%;
+        top: 20%;
+        width: 200px;
+        height: 120px;
+        border: 1px solid rgb(197, 47, 27);
+        border-radius: 4%;
+        float: right;
+        position: fixed;
+        padding: 5px;
+       }
+      #sc{
+        font-size: 30px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        
+      }
+      #text-score{
+        font-size:52px;
+        color: rgba(182, 21, 21, 0.932);
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+      }
+
+      #textHighPlayerButton{
+        background-image: url(pic/pic_button4.gif);
+        background-repeat: no-repeat;
+        width: 160px;
+        height: 50px;
+        display: inline-block;
+        right: 80%;
+      }
+      #textHighPlayerButton:hover {
+        box-shadow: 0 5px rgba(214, 188, 131, 0.5);
+      }
+      #textHighPlayerBox{
+        font-size: 28px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: rgb(29, 29, 51);
+      }
+     #kakusu{
+        width: 200px;
+        height: 110px;
+        border: 1px solid brown;
+        border-radius: 4%;
+        right: 5%;
+        top: 45%;
+        position: fixed;
+        float: right;
+        display: inline-block;
+        padding: 5px;
+        text-align: center;
+     }
+      .size {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        cursor:pointer;
+        /* display: inline-block; */
+      }
+      p {
+        font-size: 20px;
+      }
+
+      .size:hover {
+        background-color: rgba(214, 188, 131, 0.5);
+        transform: scale(1.5);
+      }
+      
+    #fontBox1{
+      float:left;
+      border: 1.5px solid brown;
+      width: 300px;
+      height:200px;
+    }
+    #fontBox2{
+      float:left;
+      border: 1.5px solid brown;
+      width: 350px;
+      height:200px;
+    }
+    #RoleFont{
+      background-image: url(pic/pic_button0.gif);
+    }
+   
+    </style>
+  </head>
+  <body>
+   
+    <!-- 遊戲規則 -->
+    <div id="rule"  style="cursor:pointer"></div>
+    <!-- 開始按鈕 -->
+    <div id="start"  style="cursor:pointer"></div>
+  
+
+
+    <div id="ruleContent">
+      △STEP1：<br>選擇一角色
+      <hr>
+      <p>從右方圈圈中選擇任一角色，選到後會在下方框框中顯示您所選的角色。</p>
+      <hr color="orange">
+      △STEP2：<br>點擊下列方框
+      <hr>
+      <p>在時間內點擊下方任一方框，翻到跟所選角色一樣的卡片即加5分。</p>
+    </div>
+
+
+    <!-- 紀錄按鈕 -->
+     <div id="textHighPlayerButton" style="cursor:pointer"> </div>
+    
+       
+    <!-- 紀錄 -->
+    <div id="kakusu">
+    <div id="textHighPlayerBox">玩家: 
+      <span id="text-highplayer"></span> </div>
+     <hr>
+     <div id="textHighPlayerBox">分數: <span id="text-highscore"></span>
+    </div>
+    </div>
+
+  
+
+    <!-- 分數 -->
+    <div id="scBox">
+       <span id="sc">SCORE </span><br><hr>
+        <span id="text-score" >0</span>
+      </div>
+    
+    
+    <br> <br><br> <br>
+
+     
+  
+    <!-- 選擇角色 -->
+    <div id="bigBox">
+      <p ><img src="pic/pic_button0.gif" alt=""></p>
+      <div id="role2"><img src="pic/pic02.png" class="size" /></div>
+      <div id="role3"><img src="pic/pic03.png" class="size" /></div>
+      <div id="role4"><img src="pic/pic04.png" class="size" /></div>
+      <div id="role5"><img src="pic/pic05.png" class="size" /></div>
+      <div id="role6"><img src="pic/pic06.png" class="size" /></div>
+      <div id="role7"><img src="pic/pic07.png" class="size" /></div>
+      <div id="role8"><img src="pic/pic08.png" class="size" /></div>
+      <div id="roleNone"><img src="pic/start.png" class="size" alt="隨機" /></div>
+    </div>
+    <br /><br />
+
+
+    
+    <!-- 上方格子-mainrole -->
+    <div id="mainRole"><img src="pic/pic01.png" alt="主場角色" /></div>
+    <br />
+    <hr />
+    <br />
+
+
+    
+    <!-- 下方21宮格 -->
+    <table id="table">
+      <tr>
+        <td id="ichi1" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi2" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+      </tr>
+      <tr>
+        <td id="ichi5" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi6" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi7" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+      </tr>
+      <tr>
+        <td id="ichi9" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi10" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi11" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+        <td id="ichi3" value="0" class="color"><img src="pic/pic01.png" alt="" /></td>
+      </tr>
+    </table>
+
+    
+
+    <script>
+      const btnStart = document.getElementById("start");
+      const textscore = document.getElementById("text-score");
+      const ichis = document.querySelectorAll("#table td");
+      const size = document.getElementsByClassName("size");
+      // 上方box內的mainrole
+      const mainRole = document.getElementById("mainRole");
+      // 圈圈內角色系列
+      const role2 = document.getElementById("role2");
+      const role3 = document.getElementById("role3");
+      const role4 = document.getElementById("role4");
+      const role5 = document.getElementById("role5");
+      const role6 = document.getElementById("role6");
+      const role7 = document.getElementById("role7");
+      const role8 = document.getElementById("role8");
+      const roleNone = document.getElementById("roleNone");
+      const textHighPlayer = document.getElementById("text-highplayer");
+      const textHighScore = document.getElementById("text-highscore");
+      const textHighScoreButton = document.getElementById("textHighPlayerButton");
+      const kakusu = document.getElementById("kakusu");
+      const rule = document.getElementById("rule");
+      const ruleContent = document.getElementById("ruleContent");
+      const fontBox1 = document.getElementById("fontBox1");
+      
+      // 計分
+      let score = 0;
+    
+       // 隱藏規則說明，按遊戲規則鈕後才顯示
+        // 無法重複收合，尚待解決
+       ruleContent.style.visibility="hidden"
+       rule.onclick=()=>{
+        rule.innerHTML=`<img src="pic/pic_button3(2).gif">`
+        ruleContent.style.visibility="visible";
+        if(ruleContent.style.visibility="visible"){
+          rule.onclick=()=>{
+            ruleContent.style.visibility="hidden"
+        }
+        }
+       }
+
+
+
+
+      // 隱藏最高紀錄，按紀錄鈕後才顯示
+      // 無法重複收合，尚待解決
+      kakusu.style.visibility="hidden";
+      textHighScoreButton.onclick=()=>{
+        textHighScoreButton.innerHTML=`<img src="pic/pic_button5.gif">`
+        kakusu.style.visibility="visible"
+        if(kakusu.style.visibility="visible"){
+          textHighScoreButton.onclick=()=>{
+            kakusu.style.visibility="hidden"
+        }
+        }
+        }
+        
+
+      
+      let highscore = { name: '', score: 0 }
+      let highscoreStorage = JSON.parse(localStorage.getItem('highscore'))
+      if (highscoreStorage !== null) {
+        highscore = highscoreStorage
+        textHighPlayer.innerText = highscore.name
+        textHighScore.innerText = highscore.score
+      }
+      btnStart.onclick = () => {
+       
+        //   開始遊戲後停掉遊戲開始功能
+        btnStart.disabled = true;
+        
+        btnStart.style.backgroundImage = "url(pic/pic_button2.gif)";
+
+        isInGame = true;
+
+         timer = 
+        setTimeout(end, 10000);
+
+        game();
+      };
+
+      // 點擊圈圈改變mainRole圖片
+      // 可於遊戲中重複點擊的bug尚待解決
+      const game = () => {
+        role2.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic02.png">`;
+        };
+        role3.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic03.png">`;
+        };
+        role4.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic04.png">`;
+        };
+        role5.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic05.png">`;
+        };
+        role6.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic06.png">`;
+        };
+        role7.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic07.png">`;
+        };
+        role8.onclick = () => {
+          mainRole.innerHTML = `<img src="pic/pic08.png">`;
+        };
+        roleNone.onclick = () => {
+          let random = Math.floor(Math.random() * 7);
+          //   let imgArray = ["pic/pic02.png", "pic/pic03.png", "pic/pic04.png", "pic/pic05.png", "pic/pic06.png", "pic/pic07.png", "pic/pic08.png"];
+          mainRole.innerHTML = `<img src=${imgArray2[random]}>`;
+
+        };
+        
+        let imgArray2 = ["pic/pic02.png", "pic/pic03.png", "pic/pic04.png", "pic/pic05.png", "pic/pic06.png", "pic/pic07.png", "pic/pic08.png"];
+        for (const i in ichis) {
+            ichis[i].onclick = function () { 
+              //有pic01的td才繼續動作
+              if (this.innerHTML.indexOf("pic/pic01.png")!=-1) {
+              // 翻開出現隨機角色
+              let random2 = Math.floor(Math.random() * 7);
+              this.innerHTML = `<img src=${imgArray2[random2]}>`;
+              
+              // 當翻到主要角色時+5分
+              if (mainRole.innerHTML == ichis[i].innerHTML) {
+                score += 5;
+
+                textscore.innerText = score;
+              }
+            };
+          }
+        }
+      };
+      // 遊戲結束後
+      const end = () => { 
+        clearInterval(timer);  
+        alert(`end,你的分數是${score}`);
+        for (const i in ichis){
+        
+         ichis[i].onclick=false;
+         size.onclick=false;}
+      
+        if (highscoreStorage === null || highscore.score < score) {
+                    const name = prompt('最高分! 請輸入你的名字')
+                    highscore.score = score
+                    highscore.name = name || '路人'
+
+                    localStorage.setItem('highscore', JSON.stringify(highscore))
+                    textHighPlayer.innerText = highscore.name
+                    textHighScore.innerText = highscore.score
+                }
+        
+      };
+
+      
+   
+    </script>
+  </body>
+</html>
